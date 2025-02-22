@@ -1,39 +1,19 @@
 ---
-import { Image } from "astro:assets";
-
-const { pathname } = Astro.url;
-
 let links: string[];
-const linkNames = ["Home", "About", "Projects", "Services"];
-
-if (pathname == "/") {
-  links = ["#home", "#about", "#projects", "#services"];
-} else {
-  links = ["/", "/#about", "/projects", "/#services"];
-}
+const linkNames = ["Home", "Projects"];
+links = ["/", "/projects"];
 ---
 
 <header
-  class="max-w-screen-lg mx-auto flex flex-wrap justify-between py-1 px-4 sm:px-6 items-center sticky top-0 z-50 lg:rounded-b-md border border-gray-300 dark:border-neutral-800 backdrop-blur-xs"
+  class="w-full flex flex-wrap justify-between py-1 px-4 sm:px-6 items-center sticky top-0 z-50 lg:rounded-b-md border border-gray-300 dark:border-neutral-800 backdrop-blur-xs bg-white/30 shadow-sm dark:bg-gray-950/30"
 >
-  <a href="/">
-    <Image
-      src="/logo.webp"
-      class="size-16 object-contain object-center bg-transparent"
-      alt="Logo"
-      width={64}
-      height={64}
-      title="Logo"
-      aria-label="Logo"
-      loading="eager"
-    />
-  </a>
+  <div></div>
   <div class="sm:order-2 flex items-center gap-3 text-gray-900">
     <button
       title="Theme Toggle"
       aria-label="Theme Toggle"
       id="theme-toggle"
-      class="flex items-center gap-2 dark:text-white"
+      class="flex items-center gap-2 dark:text-white cursor-pointer"
     >
       <svg
         id="theme-sun-icon"
@@ -97,14 +77,14 @@ if (pathname == "/") {
     class="hidden -translate-y-[200%] transition-transform p-4 sm:block sm:translate-y-0 sm:static sm:p-0 w-full sm:w-auto text-sm lg:text-base"
   >
     <ul
-      class="flex flex-col items-center gap-4 lg:gap-6 border border-dashed border-gray-500 rounded-md font-semibold text-gray-500 p-4 sm:p-2 sm:border-none sm:bg-transparent sm:flex-row"
+      class="flex flex-col items-center gap-4 lg:gap-6 border border-dashed border-gray-500 rounded-md font-semibold text-gray-950 p-4 sm:p-2 sm:border-none sm:bg-transparent sm:flex-row"
     >
       {
         links.map((link, i) => (
           <li>
             <a
               href={link}
-              class="hover:text-gray-950 dark:hover:text-white dark:text-gray-400"
+              class="hover:text-gray-500 dark:text-white dark:hover:text-gray-300 transition-colors"
             >
               {linkNames[i]}
             </a>
@@ -115,40 +95,11 @@ if (pathname == "/") {
   </nav>
 </header>
 <script is:inline>
-  const navbar = document.getElementById("navbar");
-  const navbarToggle = document.getElementById("navbar-toggle");
-  const navbarXIcon = document.getElementById("navbar-x-icon");
-  const navbarMenuIcon = document.getElementById("navbar-menu-icon");
-
-  if (navbarToggle instanceof HTMLButtonElement) {
-    navbarToggle.addEventListener("click", () => {
-      navbarXIcon.classList.toggle("hidden");
-      navbarMenuIcon.classList.toggle("hidden");
-
-      navbar.classList.toggle("hidden");
-
-      setTimeout(() => {
-        navbar.classList.toggle("-translate-y-[200%]");
-      });
-    });
-  }
-
   const themeToggle = document.getElementById("theme-toggle");
   const themeMoonIcon = document.getElementById("theme-moon-icon");
   const themeSunIcon = document.getElementById("theme-sun-icon");
 
-  const isDarkColorThemeSet =
-    "color-theme" in localStorage &&
-    localStorage.getItem("color-theme") === "dark";
-  const userPrefersDarkTheme =
-    window.matchMedia("(prefers-color-scheme: dark)").matches &&
-    !("color-theme" in localStorage);
-
-  if (isDarkColorThemeSet || userPrefersDarkTheme) {
-    setDarkTheme();
-  } else {
-    setLightTheme();
-  }
+  setDarkTheme();
 
   if (themeToggle instanceof HTMLButtonElement) {
     themeToggle.addEventListener("click", () => {

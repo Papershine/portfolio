@@ -1,5 +1,4 @@
 ---
-import background from "../assets/background.svg";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
@@ -10,22 +9,18 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/webp" href="/logo.webp" />
     <meta name="generator" content={Astro.generator} />
-    <title>PortfolioDemo1</title>
+    <title>Hilary's Website</title>
 
     <!-- Metas -->
     <meta
       name="description"
-      content="A small minimalist web developer portfolio built with Astro and TailwindCSS"
+      content="Hilary's personal portfolio website"
     />
   </head>
   <body class="dark:bg-gray-950">
-    <img
-      class="fixed top-0 left-0 size-full -z-10 blur-2xl"
-      src={background.src}
-      alt=""
-      fetchpriority="high"
+    <div
+      class="fixed top-0 left-0 size-full -z-10 blur-2xl background"
     />
     <Navbar />
     <main class="max-w-screen-lg mx-auto p-6 flex flex-col gap-12">
