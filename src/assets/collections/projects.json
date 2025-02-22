@@ -2,13 +2,13 @@
   {
     "name": "infinifractal",
     "description": "A multithreaded Mandlebrot set fractal generator written in C++ and SDL.",
-    "urlImg": "https://github.com/Papershine/infinifractal/raw/master/demo.png",
+    "urlImg": "/projects/fractal.png",
     "link": "https://github.com/Papershine/infinifractal"
   },
   {
     "name": "UBC Workday Calendar by Term",
     "description": "A Chrome extension written in JavaScript that allows users to filter their courses in the calendar by term.",
-    "urlImg": "https://lh3.googleusercontent.com/mvF7c7GWsSFXvLbbppyKyy3UgXz1V43LTIAf-NkJxMJuJUJ7Q-ljMI7uEFOoZ3FkU80IAwueKpNRMoTok506aikQdw=s1280-w1280-h800",
+    "urlImg": "/projects/ubcworkday.png",
     "link": "https://github.com/Papershine/ubcworkday-calendar-by-term"
   },
   {
