@@ -8,75 +8,70 @@ import PROJECTS from "../assets/collections/projects.json";
 ---
 
 <Layout>
-  <section id="home" class="flex flex-col">
-    <article class="text-gray-950 dark:text-white text-pretty mx-auto">
-      <h1 class="text-4xl md:text-6xl font-bold max-w-screen-sm mx-auto">
+  <section id="home" class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pt-64 md:pt-80 pb-16 md:pb-24">
+    <article class="text-gray-950 dark:text-white text-pretty">
+      <h1 class="text-6xl md:text-8xl font-bold">
         👋, I'm Hilary
       </h1>
+      <p class="text-xl md:text-2xl mt-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+        CS & Math @ UBC
+      </p>
     </article>
   </section>
-  <section id="about" class="flex flex-col">
-    <h2
-      class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
-    >
-      About Me
-    </h2>
-    <article class="flex flex-col md:flex-row gap-4 p-4">
-      <Card className="text-gray-600 dark:text-gray-300 h-fit">
-        <div class="flex flex-col gap-2 text-sm sm:text-base">
-          <h3
-            class="text-lg sm:text-xl font-semibold text-gray-950 dark:text-white"
-          >
-            🧬
-          </h3>
-          <p>
-            I'm a student at the University of British Columbia, studying a combined 
-            major in Computer Science and Mathematics.
-          </p>
-          <p>
-            I grew up in Hong Kong. In high school, I moved to Vancouver, and I fell 
-            in love with the city ever since.
-          </p>
-          <p>
-            Software is my passion. I love to build things, and I love to learn new
-            technologies, while at the same time, applying them to solve real-world
-            problems.
-          </p>
-          <p>
-            In my free time, I love to explore. Biking around Vancouver, hiking 
-            in the North Shore, skiing on the slopes of Whistler, these are all 
-            activities I love to do and enjoy.
+
+  <section id="about" class="flex flex-col bg-gray-100/50 dark:bg-gray-800/50 w-full py-10">
+    <div class="max-w-screen-lg mx-auto px-6 w-full">
+      <h2
+        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
+      >
+        💼&nbsp;&nbsp;Experience
+      </h2>
+      <div class="space-y-6">
+        {
+          EXPERIENCES.map((experience) => (
+            <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                <span>{experience.title} @ {experience.company}</span>
+                <span class="inline-flex items-center" style="height: 20px; min-width: 20px;" set:html={experience.svgIcon.replace(/width='[^']*'/, 'width="20"').replace(/height='[^']*'/, 'height="20"')} />
+              </h3>
+              <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
+                {experience.dates}
+              </p>
+              <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
+                {experience.description} {experience.bracket}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="max-w-screen-lg mx-auto px-6 w-full">
+      <h2
+        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white my-8"
+      >
+        📖&nbsp;&nbsp;School
+      </h2>
+      <div class="space-y-6">
+        <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+            <span>Bachelor of Science @ UBC</span>
+              </h3>
+              <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
+                Expected May 2026
+              </p>
+              <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
+            Combined Major in Computer Science and Mathematics
           </p>
         </div>
-      </Card>
-      <Card className="p-8">
-        <ol class="relative border-s border-gray-300 dark:border-neutral-800">
-          {
-            EXPERIENCES.map((experience) => (
-              <TimelineItem
-                company={experience.company}
-                title={experience.title}
-                bracket={experience.bracket}
-                description={experience.description}
-                date={experience.dates}
-              >
-                <div
-                  slot="icon"
-                  class="size-full p-1"
-                  set:html={experience.svgIcon}
-                />
-              </TimelineItem>
-            ))
-          }
-        </ol>
-      </Card>
-    </article>
+      </div>
+    </div>
   </section>
-  <section id="projects" class="flex flex-col">
+
+  <section id="projects" class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12">
     <h2
       class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
     >
-      Projects
+      🧑🏻‍💻&nbsp;&nbsp;Projects
     </h2>
     <div class="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {

@@ -13,17 +13,24 @@ import "../styles/global.css";
     <title>Hilary's Website</title>
 
     <!-- Metas -->
-    <meta
-      name="description"
-      content="Hilary's personal portfolio website"
-    />
+    <meta name="description" content="Hilary's personal portfolio website" />
+
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.GA_TRACKING_ID || ""}`}></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", import.meta.env.GA_TRACKING_ID || "");
+    </script>
   </head>
   <body class="dark:bg-gray-950">
-    <div
-      class="fixed top-0 left-0 size-full -z-10 blur-2xl background"
-    />
+    <div class="fixed top-0 left-0 size-full -z-10 blur-2xl background"></div>
     <Navbar />
-    <main class="max-w-screen-lg mx-auto p-6 flex flex-col gap-12">
+    <main class="flex flex-col gap-12">
       <slot />
     </main>
     <Footer />
