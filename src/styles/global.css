@@ -2,6 +2,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --breakpoint-xs: 32rem;
+  --font-sans: 'Fira Mono', 'sans-serif';
+  --font-mono: 'Fira Mono', 'monospace';
 }
 
 .backdrop {

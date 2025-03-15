@@ -6,7 +6,7 @@
     "link": "https://github.com/Papershine/infinifractal"
   },
   {
-    "name": "UBC Workday Calendar by Term",
+    "name": "UBC Calendar by Term",
     "description": "A Chrome extension written in JavaScript that allows users to filter their courses in the calendar by term.",
     "urlImg": "/projects/ubcworkday.png",
     "link": "https://github.com/Papershine/ubcworkday-calendar-by-term"
