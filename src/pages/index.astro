@@ -17,7 +17,7 @@ import PROJECTS from "../assets/collections/projects.json";
     </article>
   </section>
 
-  <section id="about" class="flex flex-col bg-gray-100/50 dark:bg-gray-800/50 w-full py-10">
+  <section id="experience" class="flex flex-col bg-gray-100/50 dark:bg-gray-800/50 w-full py-10 scroll-mt-12">
     <div class="max-w-screen-lg mx-auto px-6 w-full">
       <h2
         class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
@@ -55,7 +55,7 @@ import PROJECTS from "../assets/collections/projects.json";
             <span>Bachelor of Science @ University of British Columbia</span>
               </h3>
               <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
-                Expected May 2026
+                Expected May 2027
               </p>
               <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
             Combined Major in Computer Science and Mathematics
@@ -65,26 +65,18 @@ import PROJECTS from "../assets/collections/projects.json";
     </div>
   </section>
 
-  <section id="projects" class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12">
+  <section id="projects" class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24">
     <h2
       class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
     >
       🧑🏻‍💻&nbsp;&nbsp;Projects
     </h2>
-    <div class="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        PROJECTS.filter((__, i) => i < 3).map((project) => (
+        PROJECTS.map((project) => (
           <Project project={project} />
         ))
       }
-    </div>
-    <div class="mt-6 flex justify-center">
-      <a
-        role="button"
-        href="/projects"
-        class="font-semibold transition-colors px-4 py-2 text-base rounded-3xl duration-300 border border-gray-300 dark:border-neutral-800 bg-white/30 dark:bg-gray-950/30 hover:text-gray-500 dark:hover:text-gray-300 dark:text-white"
-        >See All Projects</a
-      >
     </div>
   </section>
 </Layout>

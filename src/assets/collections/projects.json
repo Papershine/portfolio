@@ -3,19 +3,19 @@
     "name": "infinifractal",
     "description": "A multithreaded Mandlebrot set fractal generator written in C++ and SDL.",
     "urlImg": "/projects/fractal.png",
-    "link": "https://github.com/Papershine/infinifractal"
+    "link": "https://infinifractal.hilarylau.io"
   },
   {
     "name": "UBC Calendar by Term",
     "description": "A Chrome extension written in JavaScript that allows users to filter their courses in the calendar by term.",
     "urlImg": "/projects/ubcworkday.png",
-    "link": "https://github.com/Papershine/ubcworkday-calendar-by-term"
+    "link": "https://chromewebstore.google.com/detail/hndfdmodlnjnpkihhmjaldminehkphbm"
   },
   {
     "name": "WestPeak Research Website",
     "description": "A website for WestPeak Research Association written in TypeScript, React and Gatsby, displaying published research reports done by members and information about the club.",
     "urlImg": "/projects/westpeak-website.png",
-    "link": "https://github.com/WestPeakResearch/WestPeakWebsite"
+    "link": "https://westpeakresearch.com"
   },
   {
     "name": "EncryptDecrypt",

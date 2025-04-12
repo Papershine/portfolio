@@ -3,8 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 import netlify from "@astrojs/netlify";
 
-import partytown from "@astrojs/partytown";
-
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
