@@ -17,15 +17,17 @@ import "../styles/global.css";
     <meta name="description" content="Hilary's personal portfolio website" />
 
     <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.GA_TRACKING_ID || ""}`}></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", import.meta.env.GA_TRACKING_ID || "");
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", import.meta.env.GA_TRACKING_ID || "");
     </script>
   </head>
   <body class="dark:bg-gray-950 font-mono">
