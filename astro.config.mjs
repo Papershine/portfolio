@@ -12,9 +12,4 @@ export default defineConfig({
 
   output: "server",
   adapter: netlify(),
-  integrations: [partytown({
-    config: {
-      forward: ["dataLayer.push"],
-    },
-  })],
 });
