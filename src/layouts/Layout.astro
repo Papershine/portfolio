@@ -9,19 +9,8 @@ const {title, noRobots} = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title} | Hilary's Website</title>
-
-    <!-- Metas -->
-    <meta name="description" content="Hilary's personal portfolio website" />
-    {noRobots && <meta name="robots" content="noindex" />}
-    
     <!-- Google tag (gtag.js) -->
     <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-0TL37Z4BVM"></script>
-  </head>
-  <body class="dark:bg-gray-950">
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -31,6 +20,17 @@ const {title, noRobots} = Astro.props;
 
       gtag('config', 'G-0TL37Z4BVM');
     </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Hilary's Website</title>
+
+    <!-- Metas -->
+    <meta name="description" content="Hilary's personal portfolio website" />
+    {noRobots && <meta name="robots" content="noindex" />}
+  </head>
+  <body class="dark:bg-gray-950">
     <div class="fixed top-0 left-0 size-full -z-10 blur-2xl background"></div>
     <Navbar />
     <main class="flex flex-col gap-12">
