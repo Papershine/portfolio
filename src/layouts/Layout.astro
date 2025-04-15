@@ -24,7 +24,7 @@ const {title, noRobots} = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Hilary's Website</title>
+    <title>{title || "Hilary's Website"}</title>
 
     <!-- Metas -->
     <meta name="description" content="Hilary's personal portfolio website" />
