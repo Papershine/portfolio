@@ -1,8 +1,9 @@
 ---
-import '@fontsource/fira-mono';
+import "@fontsource-variable/hanken-grotesk"
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
+const {title, noRobots} = Astro.props;
 ---
 
 <!doctype html>
@@ -11,26 +12,25 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Hilary's Website</title>
+    <title>{title} | Hilary's Website</title>
 
     <!-- Metas -->
     <meta name="description" content="Hilary's personal portfolio website" />
-
+    {noRobots && <meta name="robots" content="noindex" />}
+    
     <!-- Google tag (gtag.js) -->
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-0TL37Z4BVM"></script>
     <script is:inline>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtag/js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "G-0TL37Z4BVM");
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-0TL37Z4BVM');
     </script>
   </head>
-  <body class="dark:bg-gray-950 font-mono">
+  <body class="dark:bg-gray-950">
     <div class="fixed top-0 left-0 size-full -z-10 blur-2xl background"></div>
     <Navbar />
     <main class="flex flex-col gap-12">

@@ -2,7 +2,19 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --breakpoint-xs: 32rem;
-  --font-mono: 'Fira Mono', 'monospace';
+  --font-sans: 'Hanken Grotesk Variable', sans-serif;
+}
+
+@utility gradient-text {
+  @apply bg-clip-text bg-gradient-to-r from-yellow-500 to-pink-500 dark:from-yellow-400 dark:to-pink-400 text-transparent font-bold transition-colors duration-300;
+}
+
+.gradient-link {
+  @apply bg-clip-text bg-gradient-to-r from-yellow-500 to-pink-500 dark:from-yellow-400 dark:to-pink-400 text-transparent font-bold transition-colors duration-300;
+}
+
+.gradient-link:hover {
+  @apply text-orange-500 dark:text-orange-400 transition-colors duration-300;
 }
 
 .backdrop {

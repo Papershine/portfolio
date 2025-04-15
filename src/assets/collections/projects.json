@@ -19,7 +19,7 @@
   },
   {
     "name": "EncryptDecrypt",
-    "description": "An iOS app written in Swift that teaches users the concept of encryption, particularly the Diffie-Hellman key exchange algorithm, through an interactive interface.",
+    "description": "An iOS app written in Swift that educates users the concept of encryption, particularly the Diffie-Hellman key exchange algorithm, through an interactive interface.",
     "urlImg": "/projects/encryptdecrypt.png",
     "link": "https://github.com/Papershine/EncryptDecrypt"
   }
