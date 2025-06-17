@@ -1,36 +1,67 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Project from "../components/Project.astro";
+import ProjectNew from "../components/ProjectNew.astro";
+import Typewriter from "../components/Typewriter.tsx";
 import EXPERIENCES from "../assets/collections/experiences.json";
 import PROJECTS from "../assets/collections/projects.json";
 ---
 
 <Layout>
-  <section id="home" class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pt-64 md:pt-80 pb-16 md:pb-24">
+  <section
+    id="home"
+    class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pt-64 md:pt-80 pb-32 md:pb-48"
+  >
     <article class="text-gray-950 dark:text-white text-pretty">
       <h1 class="text-4xl md:text-6xl font-bold">
-        👋, I'm Hilary
+        <Typewriter client:load text="👋, I'm Hilary" speed={75} />
       </h1>
-      <p class="text-xl md:text-2xl mt-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p
+        class="text-xl md:text-2xl mt-4 text-gray-700 dark:text-gray-300 max-w-2xl fade-in-short-section"
+      >
         Computer Science & Math @ University of British Columbia
       </p>
     </article>
   </section>
 
-  <section id="experience" class="flex flex-col bg-gray-100/50 dark:bg-gray-800/50 w-full py-10 scroll-mt-12">
+  <section
+    id="projects"
+    class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24 alt-theme"
+  >
+    <h2
+      class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8 fade-in-section"
+    >
+      🧑🏻‍💻&nbsp;&nbsp;Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {PROJECTS.map((project) => <ProjectNew project={project} />)}
+    </div>
+  </section>
+
+  <section
+    id="experience"
+    class="flex flex-col bg-gray-100/50 dark:bg-gray-800/50 w-full py-10 scroll-mt-12"
+  >
     <div class="max-w-screen-lg mx-auto px-6 w-full">
       <h2
-        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
+        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8 fade-in-section"
       >
         💼&nbsp;&nbsp;Experience
       </h2>
       <div class="space-y-6">
         {
           EXPERIENCES.map((experience) => (
-            <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm">
+            <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                <span>{experience.title} @ {experience.company}</span>
-                <span class="inline-flex items-center" style="height: 20px; min-width: 20px;" set:html={experience.svgIcon.replace(/width='[^']*'/, 'width="20"').replace(/height='[^']*'/, 'height="20"')} />
+                <span>
+                  {experience.title} @ {experience.company}
+                </span>
+                <span
+                  class="inline-flex items-center"
+                  style="height: 20px; min-width: 20px;"
+                  set:html={experience.svgIcon
+                    .replace(/width='[^']*'/, 'width="20"')
+                    .replace(/height='[^']*'/, 'height="20"')}
+                />
               </h3>
               <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
                 {experience.dates}
@@ -45,19 +76,23 @@ import PROJECTS from "../assets/collections/projects.json";
     </div>
     <div class="max-w-screen-lg mx-auto px-6 w-full">
       <h2
-        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white my-8"
+        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white my-8 fade-in-section"
       >
         📖&nbsp;&nbsp;School
       </h2>
       <div class="space-y-6">
-        <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+        <div
+          class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
+        >
+          <h3
+            class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2"
+          >
             <span>Bachelor of Science @ University of British Columbia</span>
-              </h3>
-              <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
-                Expected Dec 2026
-              </p>
-              <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
+          </h3>
+          <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
+            Expected Dec 2026
+          </p>
+          <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
             Combined Major in Computer Science and Mathematics
           </p>
         </div>
@@ -65,46 +100,104 @@ import PROJECTS from "../assets/collections/projects.json";
     </div>
   </section>
 
-  <section id="projects" class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24">
+  <section
+    id="about"
+    class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24"
+  >
     <h2
-      class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
-    >
-      🧑🏻‍💻&nbsp;&nbsp;Projects
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        PROJECTS.map((project) => (
-          <Project project={project} />
-        ))
-      }
-    </div>
-  </section>
-
-  <section id="about" class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24">
-    <h2
-      class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8"
+      class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8 fade-in-section"
     >
       🙋🏻‍♂️&nbsp;&nbsp;About
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
+    >
       <div class="p-4">
-        <img src="/images/portrait.jpg" alt="Profile" class="rounded-lg shadow-lg" />
+        <img
+          src="/images/portrait.jpg"
+          alt="Profile"
+          class="rounded-lg shadow-lg"
+        />
       </div>
-      <div class="text-gray-700 dark:text-gray-300 md:col-span-2 flex flex-col gap-4 justify-center">
+      <div
+        class="text-gray-700 dark:text-gray-300 md:col-span-2 flex flex-col gap-4 justify-center"
+      >
         <p>
-          I'm a computer science and mathematics student at the University of British Columbia. I love building software, solving problems,
-          and making things work.
+          I'm a computer science and mathematics student at the University of
+          British Columbia. I love building software, solving problems, and
+          making things work.
         </p>
         <p>
-          Outside of school and work, you'll probably see me skiing, hiking, or searching for the best bubble tea in Vancouver.
+          Outside of school and work, you'll probably see me skiing, hiking, or
+          searching for the best bubble tea in Vancouver.
         </p>
         <p>
-          I also enjoy taking photos in my spare time, and I like being in front of the camera too. You can check out some of the photos I've taken on my 
-          <a href="https://www.flickr.com/photos/185440318@N05/" class="gradient-link">Flickr</a>. Also if you are curious, check out 
-          <a href="https://www.expressable.com/learning-center/social-emotional-academic/overcome-your-fear-of-presenting-in-class" class="gradient-link">this page</a>
-           with a photo of me!
+          I also enjoy taking photos in my spare time, and I like being in front
+          of the camera too. You can check out some of the photos I've taken on
+          my
+          <a
+            href="https://www.flickr.com/photos/185440318@N05/"
+            class="gradient-link">Flickr</a
+          >. Also if you are curious, check out
+          <a
+            href="https://www.expressable.com/learning-center/social-emotional-academic/overcome-your-fear-of-presenting-in-class"
+            class="gradient-link">this page</a
+          >
+          with a photo of me!
         </p>
       </div>
     </div>
   </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    });
+
+    document.querySelectorAll(".fade-in-section").forEach((el) => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll(".fade-in-short-section").forEach((el) => {
+      observer.observe(el);
+    });
+
+    const themeEntryObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+            document.querySelector(".background")?.classList.add("opacity-0");
+            document
+              .querySelector(".background")
+              ?.classList.remove("opacity-100");
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    const themeExitObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+            document
+              .querySelector(".background")
+              ?.classList.remove("opacity-0");
+            document.querySelector(".background")?.classList.add("opacity-100");
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    const projectSection = document.getElementById("projects");
+    if (projectSection) {
+      themeEntryObserver.observe(projectSection);
+      themeExitObserver.observe(projectSection);
+    }
+  </script>
 </Layout>

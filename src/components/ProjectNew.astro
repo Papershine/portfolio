@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+
+interface Project {
+  name: string;
+  description: string;
+  urlImg: string;
+  link: string;
+}
+
+interface Props {
+  project: Project;
+}
+
+const { name, description, urlImg, link } = Astro.props.project;
+---
+
+<>
+  <div id={`project-${name}`} class="rounded-xl bg-white/30 dark:bg-gray-950/30 relative cursor-pointer group border-gray-300 dark:border-gray-700 border-1 fade-in-section will-change-[backdrop-filter,opacity]">
+    <Image
+      src={urlImg}
+      alt={name}
+      width={1024}
+      height={1024}
+      class="w-full h-72 rounded-lg object-center object-cover fade-bottom"
+    />
+    <span class="absolute rounded-xl z-5 bottom-0 left-0 right-0 top-0 fade-blur will-change-[backdrop-filter,opacity]"></span>
+    <span class="absolute z-10 flex font-bold text-xl bottom-0 left-0 right-0 p-5 text-gray-950 dark:text-gray-100 will-change-[backdrop-filter,opacity]">
+      <span class="inline-block group-hover:gradient-text">{name}</span>
+      <svg
+          class="group-hover:translate-x-0 group-hover:translate-y-1 -rotate-45 translate-y-2 -translate-x-1 w-5 h-5 text-pink-500 dark:text-pink-400 ml-1 transition-all ease-in-out duration-200 transform"
+          viewBox="0 0 13 15"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          ><g
+            stroke="none"
+            stroke-width="1"
+            fill="none"
+            fill-rule="evenodd"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><g
+              id="svg"
+              transform="translate(0.666667, 2.333333)"
+              stroke="currentColor"
+              stroke-width="2.4"
+              ><g
+                ><polyline
+                  class="transition-all duration-200 ease-out opacity-0 delay-0 group-hover:opacity-100"
+                  points="5.33333333 0 10.8333333 5.5 5.33333333 11"
+                ></polyline><line
+                  class="transition-all duration-200 ease-out transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:ml-0"
+                  x1="10.8333333"
+                  y1="5.5"
+                  x2="0.833333333"
+                  y2="5.16666667"></line></g
+              >
+            </g>
+          </g>
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div class="flex flex-col justify-around fade-in-section">
+    <p class="pb-12 md:p-12 text-gray-950 dark:text-gray-100 text-center">{description}</p>
+  </div>
+  <script define:vars={{ projectName: name, link }}>
+    const project = document.getElementById(`project-${projectName}`);
+    project.addEventListener('click', () => {
+      window.open(`${link}`, '_blank');
+    });
+  </script>
+</>

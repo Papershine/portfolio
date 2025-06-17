@@ -30,8 +30,8 @@ const {title, noRobots} = Astro.props;
     <meta name="description" content="Hilary's personal portfolio website" />
     {noRobots && <meta name="robots" content="noindex" />}
   </head>
-  <body class="dark:bg-gray-950">
-    <div class="fixed top-0 left-0 size-full -z-10 blur-2xl background"></div>
+  <body class="dark:bg-gray-800 fade-blocked">
+    <div class="fixed top-0 left-0 size-full -z-10 blur-2xl background opacity-100 transition-opacity duration-1000"></div>
     <Navbar />
     <main class="flex flex-col gap-12">
       <slot />

@@ -1,13 +1,19 @@
 [
   {
+    "name": "Shopify Campaigns",
+    "description": "A new feature in the Shopify Admin that allows users to track multichannel marketing campaigns in a single place, written in TypeScript, React, and Ruby on Rails.",
+    "urlImg": "/projects/campaigns.png",
+    "link": "https://help.shopify.com/en/manual/promoting-marketing/create-marketing/campaigns"
+  },
+  {
     "name": "infinifractal",
-    "description": "A multithreaded Mandlebrot set fractal generator written in C++ and SDL.",
+    "description": "A multithreaded Mandlebrot set fractal generator written in C++ and SDL. Accessible both as a native application and as a website through WebAssembly.",
     "urlImg": "/projects/fractal.png",
     "link": "https://infinifractal.hilarylau.io"
   },
   {
     "name": "UBC Calendar by Term",
-    "description": "A Chrome extension written in JavaScript that allows users to filter their courses in the calendar by term.",
+    "description": "A Chrome extension written in JavaScript that allows users to filter their courses in the UBC course calendar down by term.",
     "urlImg": "/projects/ubcworkday.png",
     "link": "https://chromewebstore.google.com/detail/hndfdmodlnjnpkihhmjaldminehkphbm"
   },
