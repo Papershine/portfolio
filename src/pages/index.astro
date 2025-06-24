@@ -166,38 +166,28 @@ import PROJECTS from "../assets/collections/projects.json";
       observer.observe(el);
     });
 
-    const themeEntryObserver = new IntersectionObserver(
+    const isMobile = window.innerWidth < 768;
+    const thresholds = isMobile ? [0.1, 0.2] : [0.2, 0.3];
+    
+    const themeObserver = new IntersectionObserver(
       ([entry]) => {
+        const background = document.querySelector(".background");
         if (entry.isIntersecting) {
-            document.querySelector(".background")?.classList.add("opacity-0");
-            document
-              .querySelector(".background")
-              ?.classList.remove("opacity-100");
+          background?.classList.add("opacity-0");
+          background?.classList.remove("opacity-100");
+        } else {
+          background?.classList.remove("opacity-0");
+          background?.classList.add("opacity-100");
         }
       },
       {
-        threshold: 0.2,
-      }
-    );
-
-    const themeExitObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-            document
-              .querySelector(".background")
-              ?.classList.remove("opacity-0");
-            document.querySelector(".background")?.classList.add("opacity-100");
-        }
-      },
-      {
-        threshold: 0.3,
+        threshold: [0.2, 0.3],
       }
     );
 
     const projectSection = document.getElementById("projects");
     if (projectSection) {
-      themeEntryObserver.observe(projectSection);
-      themeExitObserver.observe(projectSection);
+      themeObserver.observe(projectSection);
     }
   </script>
 </Layout>
