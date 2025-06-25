@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+
+interface Project {
+  name: string;
+  description: string;
+  urlImg: string;
+  link: string;
+}
+
+interface Props {
+  project: Project;
+}
+
+const { name, description, urlImg, link } = Astro.props.project;
+---
+
+<div
+  id={`project-${name}`}
+  class="rounded-xl bg-white/30 dark:bg-gray-950/30 relative cursor-pointer group border-gray-300 dark:border-gray-700 border-1 fade-in-section will-change-[backdrop-filter,opacity]"
+>
+  <Image
+    src={urlImg}
+    alt={name}
+    width={1024}
+    height={1024}
+    class="w-full h-72 rounded-lg object-center object-cover fade-bottom"
+  />
+  <span
+    class="absolute rounded-xl z-5 bottom-0 left-0 right-0 top-0 fade-blur will-change-[backdrop-filter,opacity]"
+  ></span>
+  <span
+    class="absolute z-10 font-bold text-xl bottom-0 left-0 right-0 m-4 text-gray-950 dark:text-gray-100 will-change-[backdrop-filter,opacity] flex"
+  >
+  <span class="bg-gray-200/40 dark:bg-gray-800/40 rounded-xl py-2 px-4 border-gray-300 dark:border-gray-700 border-1 backdrop-blur-3xl">
+    <span class="block group-hover:gradient-text transition-colors duration-300">{name}</span>
+  </span>
+  </span>
+</div>
+<div class="flex flex-col justify-around fade-in-section">
+  <p class="pb-12 md:p-12 text-gray-950 dark:text-gray-100 text-center">
+    {description}
+  </p>
+</div>
+<script define:vars={{ projectName: name, link }}>
+  const project = document.getElementById(`project-${projectName}`);
+  project.addEventListener("click", () => {
+    window.open(`${link}`, "_blank");
+  });
+</script>

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProjectNew from "../components/ProjectNew.astro";
+import Project from "../components/Project.astro";
 import Typewriter from "../components/Typewriter.tsx";
 import EXPERIENCES from "../assets/collections/experiences.json";
 import PROJECTS from "../assets/collections/projects.json";
@@ -9,11 +9,11 @@ import PROJECTS from "../assets/collections/projects.json";
 <Layout>
   <section
     id="home"
-    class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pt-64 md:pt-80 pb-32 md:pb-48"
+    class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pt-48 md:pt-64 pb-24 md:pb-32"
   >
     <article class="text-gray-950 dark:text-white text-pretty">
       <h1 class="text-4xl md:text-6xl font-bold">
-        <Typewriter client:load text="👋, I'm Hilary" speed={75} />
+        <Typewriter client:load text="👋, I'm Hilary" speed={50} />
       </h1>
       <p
         class="text-xl md:text-2xl mt-4 text-gray-700 dark:text-gray-300 max-w-2xl fade-in-short-section"
@@ -33,7 +33,7 @@ import PROJECTS from "../assets/collections/projects.json";
       🧑🏻‍💻&nbsp;&nbsp;Projects
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {PROJECTS.map((project) => <ProjectNew project={project} />)}
+      {PROJECTS.map((project) => <Project project={project} />)}
     </div>
   </section>
 
@@ -132,7 +132,7 @@ import PROJECTS from "../assets/collections/projects.json";
           searching for the best bubble tea in Vancouver.
         </p>
         <p>
-          I also enjoy taking photos in my spare time, and I like being in front
+          I also enjoy taking photos in my spare time and being in front
           of the camera too. You can check out some of the photos I've taken on
           my
           <a
@@ -165,9 +165,6 @@ import PROJECTS from "../assets/collections/projects.json";
     document.querySelectorAll(".fade-in-short-section").forEach((el) => {
       observer.observe(el);
     });
-
-    const isMobile = window.innerWidth < 768;
-    const thresholds = isMobile ? [0.1, 0.2] : [0.2, 0.3];
     
     const themeObserver = new IntersectionObserver(
       ([entry]) => {
