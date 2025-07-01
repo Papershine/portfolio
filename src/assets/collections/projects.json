@@ -1,32 +1,47 @@
 [
   {
     "name": "Shopify Campaigns",
-    "description": "A new feature in the Shopify Admin that allows users to track multichannel marketing campaigns in a single place, written in TypeScript, React, and Ruby on Rails.",
+    "description": "A new feature in the Shopify Admin that allows users to track multichannel marketing campaigns in a single place.",
     "urlImg": "/projects/campaigns.png",
-    "link": "https://help.shopify.com/en/manual/promoting-marketing/create-marketing/campaigns"
+    "link": "https://help.shopify.com/en/manual/promoting-marketing/create-marketing/campaigns",
+    "type": "Internship",
+    "languages": ["TypeScript", "Ruby"],
+    "frameworks": ["React", "Ruby on Rails", "ClickHouse"]
   },
   {
     "name": "infinifractal",
-    "description": "A multithreaded Mandlebrot set fractal generator written in C++ and SDL. Accessible both as a native application and as a website through WebAssembly.",
+    "description": "A multithreaded Mandlebrot set fractal generator. Accessible both as a native application and as a website through WebAssembly.",
     "urlImg": "/projects/fractal.png",
-    "link": "https://infinifractal.hilarylau.io"
+    "link": "https://infinifractal.hilarylau.io",
+    "type": "Personal",
+    "languages": ["C++"],
+    "frameworks": ["SDL"]
   },
   {
     "name": "UBC Calendar by Term",
-    "description": "A Chrome extension written in JavaScript that allows users to filter their courses in the UBC course calendar down by term.",
+    "description": "A Chrome extension that allows users to filter their courses in the UBC course calendar down by term.",
     "urlImg": "/projects/ubcworkday.png",
-    "link": "https://chromewebstore.google.com/detail/hndfdmodlnjnpkihhmjaldminehkphbm"
+    "link": "https://chromewebstore.google.com/detail/hndfdmodlnjnpkihhmjaldminehkphbm",
+    "type": "Personal",
+    "languages": ["JavaScript"],
+    "frameworks": []
   },
   {
     "name": "WestPeak Research Website",
-    "description": "A website for WestPeak Research Association written in TypeScript, React and Gatsby, displaying published research reports done by members and information about the club.",
+    "description": "A website for WestPeak Research Association displaying published research reports done by members and information about the club.",
     "urlImg": "/projects/westpeak-website.png",
-    "link": "https://westpeakresearch.com"
+    "link": "https://westpeakresearch.com",
+    "type": "Personal",
+    "languages": ["TypeScript"],
+    "frameworks": ["React", "Gatsby"]
   },
   {
     "name": "EncryptDecrypt",
-    "description": "An iOS app written in Swift that educates users the concept of encryption, particularly the Diffie-Hellman key exchange algorithm, through an interactive interface.",
+    "description": "An iOS app that educates users the concept of encryption, particularly the Diffie-Hellman key exchange algorithm, through an interactive interface.",
     "urlImg": "/projects/encryptdecrypt.png",
-    "link": "https://github.com/Papershine/EncryptDecrypt"
+    "link": "https://github.com/Papershine/EncryptDecrypt",
+    "type": "Personal",
+    "languages": ["Swift"],
+    "frameworks": ["SwiftUI"]
   }
 ]

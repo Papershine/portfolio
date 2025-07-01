@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import GraphemeSplitter from 'grapheme-splitter';
+
 
 export default function Typewriter({ text, speed }: { text: string, speed: number }) {
   const [displayed, setDisplayed] = useState<string>("");
 
-  const graphemes = [...new Intl.Segmenter('en', { granularity: 'grapheme' }).segment(text)].map(s => s.segment);
+  const splitter = new GraphemeSplitter();
+  const graphemes = splitter.splitGraphemes(text);
 
   useEffect(() => {
     let i = 0;

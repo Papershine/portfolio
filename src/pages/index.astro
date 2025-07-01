@@ -4,6 +4,7 @@ import Project from "../components/Project.astro";
 import Typewriter from "../components/Typewriter.tsx";
 import EXPERIENCES from "../assets/collections/experiences.json";
 import PROJECTS from "../assets/collections/projects.json";
+import { Technologies } from "../components/Technologies.tsx";
 ---
 
 <Layout>
@@ -12,8 +13,8 @@ import PROJECTS from "../assets/collections/projects.json";
     class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pt-48 md:pt-64 pb-24 md:pb-32"
   >
     <article class="text-gray-950 dark:text-white text-pretty">
-      <h1 class="text-4xl md:text-6xl font-bold">
-        <Typewriter client:load text="👋, I'm Hilary" speed={50} />
+      <h1 class="text-4xl md:text-6xl font-semibold">
+        <Typewriter client:load text="👋 , I'm Hilary" speed={40} />
       </h1>
       <p
         class="text-xl md:text-2xl mt-4 text-gray-700 dark:text-gray-300 max-w-2xl fade-in-short-section"
@@ -24,51 +25,40 @@ import PROJECTS from "../assets/collections/projects.json";
   </section>
 
   <section
-    id="projects"
-    class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24 alt-theme"
-  >
-    <h2
-      class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8 fade-in-section"
-    >
-      🧑🏻‍💻&nbsp;&nbsp;Projects
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {PROJECTS.map((project) => <Project project={project} />)}
-    </div>
-  </section>
-
-  <section
     id="experience"
     class="flex flex-col bg-gray-100/50 dark:bg-gray-800/50 w-full py-10 scroll-mt-12"
   >
     <div class="max-w-screen-lg mx-auto px-6 w-full">
       <h2
-        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8 fade-in-section"
+        class="text-3xl font-semibold text-gray-950 dark:text-white mb-4 fade-in-section"
       >
-        💼&nbsp;&nbsp;Experience
+        💼&nbsp;&nbsp;Experiences
       </h2>
       <div class="space-y-6">
         {
           EXPERIENCES.map((experience) => (
             <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                <span>
-                  {experience.title} @ {experience.company}
-                </span>
+              <h3 class="text-lg font-normal text-gray-900 dark:text-white flex items-center">
                 <span
-                  class="inline-flex items-center"
+                  class="inline-flex items-center pr-2"
                   style="height: 20px; min-width: 20px;"
                   set:html={experience.svgIcon
                     .replace(/width='[^']*'/, 'width="20"')
                     .replace(/height='[^']*'/, 'height="20"')}
                 />
+                <span class="font-semibold">
+                  {experience.company} 
+                </span> 
+                &nbsp;- {experience.title}
               </h3>
               <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
                 {experience.dates}
               </p>
-              <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
-                {experience.description} {experience.bracket}
-              </p>
+              {
+                experience.technologies && (
+                  <Technologies client:load technologies={experience.technologies} />
+                )
+              }
             </div>
           ))
         }
@@ -76,23 +66,23 @@ import PROJECTS from "../assets/collections/projects.json";
     </div>
     <div class="max-w-screen-lg mx-auto px-6 w-full">
       <h2
-        class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white my-8 fade-in-section"
+        class="text-3xl font-semibold text-gray-950 dark:text-white mt-8 mb-4 fade-in-section"
       >
-        📖&nbsp;&nbsp;School
+        📖&nbsp;School
       </h2>
       <div class="space-y-6">
         <div
           class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
         >
           <h3
-            class="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2"
+            class="text-lg text-gray-900 dark:text-white flex items-center"
           >
-            <span>Bachelor of Science @ University of British Columbia</span>
+            <span class="font-semibold">University of British Columbia</span>&nbsp;- Bachelor of Science
           </h3>
           <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
             Expected Dec 2026
           </p>
-          <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
+          <p class="text-base text-gray-950 dark:text-gray-100 mt-2">
             Combined Major in Computer Science and Mathematics
           </p>
         </div>
@@ -101,18 +91,36 @@ import PROJECTS from "../assets/collections/projects.json";
   </section>
 
   <section
+    id="projects"
+    class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24 alt-theme"
+  >
+    <h2
+      class="text-3xl font-semibold text-gray-950 dark:text-white mb-4 fade-in-section"
+    >
+      🧑🏻‍💻&nbsp;&nbsp;Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 fade-in-section">
+      {PROJECTS.map((project, index) => 
+        <div class={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}>
+          <Project project={project} />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section
     id="about"
     class="flex flex-col max-w-screen-lg mx-auto px-6 w-full pb-12 scroll-mt-24"
   >
     <h2
-      class="text-2xl md:text-4xl font-bold text-gray-950 dark:text-white mb-8 fade-in-section"
+      class="text-3xl font-semibold text-gray-950 dark:text-white mb-4 fade-in-section"
     >
       🙋🏻‍♂️&nbsp;&nbsp;About
     </h2>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
     >
-      <div class="p-4">
+      <div class="p-4 max-w-[50vw] mx-auto">
         <img
           src="/images/portrait.jpg"
           alt="Profile"
@@ -132,18 +140,12 @@ import PROJECTS from "../assets/collections/projects.json";
           searching for the best bubble tea in Vancouver.
         </p>
         <p>
-          I also enjoy taking photos in my spare time and being in front
-          of the camera too. You can check out some of the photos I've taken on
+          I also enjoy taking photos in my spare time too. You can check out some of the photos I've taken on
           my
           <a
             href="https://www.flickr.com/photos/185440318@N05/"
             class="gradient-link">Flickr</a
-          >. Also if you are curious, check out
-          <a
-            href="https://www.expressable.com/learning-center/social-emotional-academic/overcome-your-fear-of-presenting-in-class"
-            class="gradient-link">this page</a
-          >
-          with a photo of me!
+          >.
         </p>
       </div>
     </div>
@@ -178,7 +180,7 @@ import PROJECTS from "../assets/collections/projects.json";
         }
       },
       {
-        threshold: [0.2, 0.3],
+        threshold: [0.2, 0.2],
       }
     );
 
