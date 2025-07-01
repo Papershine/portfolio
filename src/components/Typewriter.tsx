@@ -22,5 +22,5 @@ export default function Typewriter({ text, speed }: { text: string, speed: numbe
     return () => clearInterval(interval);
   }, [text, speed]);
 
-  return <span>{displayed}</span>;
+  return <span>{displayed}&nbsp;</span>;
 }
