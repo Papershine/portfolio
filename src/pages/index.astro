@@ -38,27 +38,26 @@ import { Technologies } from "../components/Technologies.tsx";
         {
           EXPERIENCES.map((experience) => (
             <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section">
-              <h3 class="text-lg font-normal text-gray-900 dark:text-white flex items-center">
+              <h3 class="text-lg font-normal text-gray-900 dark:text-white">
                 <span
-                  class="inline-flex items-center pr-2"
+                  class="inline-block pt-1"
                   style="height: 20px; min-width: 20px;"
                   set:html={experience.svgIcon
                     .replace(/width='[^']*'/, 'width="20"')
                     .replace(/height='[^']*'/, 'height="20"')}
                 />
-                <span class="font-semibold">
-                  {experience.company} 
-                </span> 
-                &nbsp;- {experience.title}
+                <span class="font-semibold">{experience.company}</span>-{" "}
+                {experience.title}
               </h3>
               <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
                 {experience.dates}
               </p>
-              {
-                experience.technologies && (
-                  <Technologies client:load technologies={experience.technologies} />
-                )
-              }
+              {experience.technologies && (
+                <Technologies
+                  client:load
+                  technologies={experience.technologies}
+                />
+              )}
             </div>
           ))
         }
@@ -74,14 +73,10 @@ import { Technologies } from "../components/Technologies.tsx";
         <div
           class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
         >
-          <h3
-            class="text-lg text-gray-900 dark:text-white flex items-center"
-          >
-            <span class="font-semibold">University of British Columbia</span>&nbsp;- Bachelor of Science
+          <h3 class="text-lg text-gray-900 dark:text-white">
+            <span class="font-semibold">University of British Columbia</span
+            >&nbsp;- Bachelor of Science
           </h3>
-          <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
-            Expected Dec 2026
-          </p>
           <p class="text-base text-gray-950 dark:text-gray-100 mt-2">
             Combined Major in Computer Science and Mathematics
           </p>
@@ -100,11 +95,15 @@ import { Technologies } from "../components/Technologies.tsx";
       🧑🏻‍💻&nbsp;&nbsp;Projects
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-1 gap-6 fade-in-section">
-      {PROJECTS.map((project, index) => 
-        <div class={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}>
-          <Project project={project} />
-        </div>
-      )}
+      {
+        PROJECTS.map((project, index) => (
+          <div
+            class={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
+          >
+            <Project project={project} />
+          </div>
+        ))
+      }
     </div>
   </section>
 
@@ -140,8 +139,8 @@ import { Technologies } from "../components/Technologies.tsx";
           searching for the best bubble tea in Vancouver.
         </p>
         <p>
-          I also enjoy taking photos in my spare time too. You can check out some of the photos I've taken on
-          my
+          I also enjoy taking photos in my spare time too. You can check out
+          some of the photos I've taken on my
           <a
             href="https://www.flickr.com/photos/185440318@N05/"
             class="gradient-link">Flickr</a
@@ -167,7 +166,7 @@ import { Technologies } from "../components/Technologies.tsx";
     document.querySelectorAll(".fade-in-short-section").forEach((el) => {
       observer.observe(el);
     });
-    
+
     const themeObserver = new IntersectionObserver(
       ([entry]) => {
         const background = document.querySelector(".background");
