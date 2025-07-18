@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Tag from "./Tag.astro";
+import TiltedCard from "./TiltedCard.tsx";
 
 interface Project {
   name: string;
@@ -16,49 +17,29 @@ interface Props {
   project: Project;
 }
 
-const { name, urlImg, link, type, languages } =
-  Astro.props.project;
+const { name, urlImg, link, type, languages } = Astro.props.project;
 ---
 
-<div
-  id={`project-${name}`}
-  class="rounded-xl bg-white/30 dark:bg-gray-950/30 w-3xl relative cursor-pointer group border-gray-300 dark:border-gray-700 border-1 will-change-[backdrop-filter,opacity]"
+<TiltedCard
+  client:visible
+  imageSrc={urlImg}
+  altText={name}
+  link={link}
 >
-  <Image
-    src={urlImg}
-    alt={name}
-    width={1024}
-    height={1024}
-    class="w-full h-80 md:h-108 rounded-lg object-center object-cover fade-bottom"
-  />
-  <span
-    class="absolute rounded-xl z-5 bottom-0 left-0 right-0 top-0 fade-blur will-change-[backdrop-filter,opacity]"
-  ></span>
-  <span
-    class="absolute z-10 bottom-0 left-0 right-0 m-4 will-change-[backdrop-filter,opacity]"
-  >
-    <div>
-      <div class="flex flex-row flex-wrap gap-2 mb-2">
-        <Tag name={type} primary />
-        {languages.map((language) => <Tag name={language} />)}
-      </div>
-
-      <div class="flex">
-        <span
-          class="bg-gray-200/40 dark:bg-gray-800/40 rounded-xl py-1 px-4 border-gray-300 dark:border-gray-700 border-1 backdrop-blur-3xl"
-        >
-          <span
-            class="font-semibold text-xl text-gray-950 dark:text-gray-100 block group-hover:gradient-text transition-colors duration-300"
-            >{name}</span
-          >
-        </span>
-      </div>
+  <div>
+    <div class="flex flex-row flex-wrap gap-2 mb-2">
+      <Tag name={type} primary />
+      {languages.map((language) => (
+        <Tag name={language} />
+      ))}
     </div>
-  </span>
-</div>
-<script define:vars={{ projectName: name, link }}>
-  const project = document.getElementById(`project-${projectName}`);
-  project.addEventListener("click", () => {
-    window.open(`${link}`, "_blank");
-  });
-</script>
+
+    <div class="flex">
+      <span class="bg-gray-200/40 dark:bg-gray-800/40 rounded-xl py-1 px-4 border-gray-300 dark:border-gray-700 border-1 backdrop-blur-3xl">
+        <span class="font-semibold text-xl text-gray-950 dark:text-gray-100 block group-hover:gradient-text transition-colors duration-300">
+          {name}
+        </span>
+      </span>
+    </div>
+  </div>
+</TiltedCard>

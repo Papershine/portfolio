@@ -16,6 +16,7 @@
     "@types/react-dom": "^19.1.6",
     "astro": "^5.2.5",
     "devicons-react": "^1.4.1",
+    "framer-motion": "^12.23.6",
     "grapheme-splitter": "^1.0.4",
     "handlebars": "^4.7.8",
     "motion": "^12.0.5",
