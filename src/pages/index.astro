@@ -37,7 +37,8 @@ import { Technologies } from "../components/Technologies.tsx";
       <div class="space-y-6">
         {
           EXPERIENCES.map((experience) => (
-            <div class={`p-4 bg-white/80 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow before:bg-${experience.color}`}>
+            <div class="p-4 bg-white/80 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow"
+                 style={`--glow-color: ${experience.background};`}>
               <h3 class="text-lg font-normal text-gray-900 dark:text-white">
                 <span
                   class="inline-block pt-1"
@@ -72,7 +73,8 @@ import { Technologies } from "../components/Technologies.tsx";
       </h2>
       <div class="space-y-6">
         <div
-          class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow before:bg-[#4887D4]"
+          class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow"
+          style="--glow-color: #4887D4"
         >
           <h3 class="text-lg text-gray-900 dark:text-white">
             <span class="font-semibold">University of British Columbia</span

@@ -339,6 +339,7 @@ body:not(.fade-blocked) .fade-in-short-section.visible {
   filter: blur(2rem);
   opacity: 0;
   transition: opacity 0.5s;
+  background: var(--glow-color);
 }
 
 .glow:hover::before {
