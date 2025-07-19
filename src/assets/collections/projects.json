@@ -13,7 +13,6 @@
     "description": "A multithreaded Mandlebrot set fractal generator. Accessible both as a native application and as a website through WebAssembly.",
     "urlImg": "/projects/fractal.png",
     "link": "https://infinifractal.hilarylau.io",
-    "type": "Personal",
     "languages": ["C++"],
     "frameworks": ["SDL"]
   },
@@ -22,7 +21,6 @@
     "description": "A Chrome extension that allows users to filter their courses in the UBC course calendar down by term.",
     "urlImg": "/projects/ubcworkday.png",
     "link": "https://chromewebstore.google.com/detail/hndfdmodlnjnpkihhmjaldminehkphbm",
-    "type": "Personal",
     "languages": ["JavaScript"],
     "frameworks": []
   },
@@ -31,7 +29,6 @@
     "description": "A website for WestPeak Research Association displaying published research reports done by members and information about the club.",
     "urlImg": "/projects/westpeak-website.png",
     "link": "https://westpeakresearch.com",
-    "type": "Personal",
     "languages": ["TypeScript"],
     "frameworks": ["React", "Gatsby"]
   },
@@ -40,7 +37,6 @@
     "description": "An iOS app that educates users the concept of encryption, particularly the Diffie-Hellman key exchange algorithm, through an interactive interface.",
     "urlImg": "/projects/encryptdecrypt.png",
     "link": "https://github.com/Papershine/EncryptDecrypt",
-    "type": "Personal",
     "languages": ["Swift"],
     "frameworks": ["SwiftUI"]
   }

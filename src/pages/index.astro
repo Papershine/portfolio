@@ -30,14 +30,14 @@ import { Technologies } from "../components/Technologies.tsx";
   >
     <div class="max-w-screen-lg mx-auto px-6 w-full">
       <h2
-        class="text-3xl font-semibold text-gray-950 dark:text-white mb-4 fade-in-section"
+        class="text-3xl font-semibold text-gray-950 dark:text-white mb-4 fade-in-section -z-20"
       >
         💼&nbsp;&nbsp;Experiences
       </h2>
       <div class="space-y-6">
         {
           EXPERIENCES.map((experience) => (
-            <div class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section">
+            <div class={`p-4 bg-white/80 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow before:bg-${experience.color}`}>
               <h3 class="text-lg font-normal text-gray-900 dark:text-white">
                 <span
                   class="inline-block pt-1"
@@ -46,7 +46,8 @@ import { Technologies } from "../components/Technologies.tsx";
                     .replace(/width='[^']*'/, 'width="20"')
                     .replace(/height='[^']*'/, 'height="20"')}
                 />
-                <span class="font-semibold">{experience.company}</span>{" - "}
+                <span class="font-semibold">{experience.company}</span>
+                {" - "}
                 {experience.title}
               </h3>
               <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
@@ -71,7 +72,7 @@ import { Technologies } from "../components/Technologies.tsx";
       </h2>
       <div class="space-y-6">
         <div
-          class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
+          class="p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow before:bg-[#4887D4]"
         >
           <h3 class="text-lg text-gray-900 dark:text-white">
             <span class="font-semibold">University of British Columbia</span
@@ -117,14 +118,18 @@ import { Technologies } from "../components/Technologies.tsx";
       🙋🏻‍♂️&nbsp;&nbsp;About
     </h2>
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
+      class="grid grid-cols-1 md:grid-cols-3 gap-10 p-8 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
     >
-      <div class="p-4 max-w-[50vw] mx-auto">
+      <div
+        class="my-4 mx-auto max-w-[50vw] aspect-square relative glow-border-spin glow-border-bright"
+      >
+      <div class="rounded-lg shadow-lg overflow-hidden">
         <img
           src="/images/portrait.jpg"
           alt="Profile"
-          class="rounded-lg shadow-lg"
+          class="transition-transform transform hover:scale-200 hover:translate-y-3/7"
         />
+      </div>
       </div>
       <div
         class="text-gray-700 dark:text-gray-300 md:col-span-2 flex flex-col gap-4 justify-center"
@@ -139,7 +144,7 @@ import { Technologies } from "../components/Technologies.tsx";
           searching for the best bubble tea in Vancouver.
         </p>
         <p>
-          I also enjoy taking photos in my spare time too. You can check out
+          I also enjoy taking photos in my spare time. You can check out
           some of the photos I've taken on my
           <a
             href="https://www.flickr.com/photos/185440318@N05/"
@@ -189,7 +194,7 @@ import { Technologies } from "../components/Technologies.tsx";
     }
 
     setTimeout(() => {
-      document.body.classList.remove("fade-blocked")
-    }, 2000)
+      document.body.classList.remove("fade-blocked");
+    }, 2000);
   </script>
 </Layout>

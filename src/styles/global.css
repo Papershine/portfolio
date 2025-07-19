@@ -330,6 +330,22 @@ body:not(.fade-blocked) .fade-in-short-section.visible {
   }
 }
 
+.glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  border-radius: inherit;
+  filter: blur(2rem);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.glow:hover::before {
+  opacity: 1;
+}
+
+
 .glow-border-spin::before {
   content: '';
   position: absolute;
@@ -345,4 +361,8 @@ body:not(.fade-blocked) .fade-in-short-section.visible {
 
 .glow-border-spin:hover::before {
   opacity: 1;
+}
+
+.glow-border-bright::before {
+  z-index: 0;
 }

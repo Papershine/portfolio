@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Tag from "./Tag.astro";
 import TiltedCard from "./TiltedCard.tsx";
 
@@ -8,7 +7,7 @@ interface Project {
   description: string;
   urlImg: string;
   link: string;
-  type: string;
+  type?: string;
   languages: string[];
   frameworks: string[];
 }
@@ -28,7 +27,7 @@ const { name, urlImg, link, type, languages } = Astro.props.project;
 >
   <div>
     <div class="flex flex-row flex-wrap gap-2 mb-2">
-      <Tag name={type} primary />
+      {type && <Tag name={type} primary />}
       {languages.map((language) => (
         <Tag name={language} />
       ))}
