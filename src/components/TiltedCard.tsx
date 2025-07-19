@@ -83,7 +83,8 @@ export default function TiltedCard({
       onClick={() => window.open(link, '_blank')}
     >
       <motion.div
-        className="tilted-card-inner w-full h-80 md:h-96 rounded-xl bg-white/30 dark:bg-gray-950/30 border-gray-300 dark:border-gray-700 border-1"
+        className="tilted-card-inner w-full h-80 md:h-96 rounded-xl border-gray-300 dark:border-gray-700 border-1
+                    glow-border-spin"
         style={{
           rotateX,
           rotateY,
@@ -93,7 +94,7 @@ export default function TiltedCard({
         <motion.img
           src={imageSrc}
           alt={altText}
-          className="tilted-card-img w-full h-80 md:h-96 rounded-xl object-center object-cover fade-bottom"
+          className="tilted-card-img w-full h-80 md:h-96 rounded-xl object-center object-cover bg-gray-100/80 dark:bg-gray-900/80"
         />
         <motion.div className="tilted-card-overlay absolute z-10 bottom-0 left-0 right-0 my-6 mx-8 will-change-[backdrop-filter,opacity]">
           {children}

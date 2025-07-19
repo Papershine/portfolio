@@ -174,7 +174,7 @@
 @property --c-1 {
   syntax: "<color>";
   inherits: false;
-  initial-value: hsla(219.99999999999997, 50%, 82%, 1);
+  initial-value: hsla(220, 50%, 82%, 1);
 }
 
 @property --c-2 {
@@ -329,4 +329,36 @@ body:not(.fade-blocked) .fade-in-short-section.visible {
 
 .clip-reveal {
   animation: clip-reveal 5s ease forwards;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotate-gradient {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.glow-border-spin::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  border-radius: inherit;
+  filter: blur(2rem);
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: rotate-gradient 6s linear infinite;
+  background: conic-gradient(from var(--angle), hsla(220, 40%, 52%, 1), hsla(334, 42%, 53%, 1), hsla(182, 62%, 48%, 1), hsla(220, 40%, 52%, 1));
+}
+
+.glow-border-spin:hover::before {
+  opacity: 1;
 }
