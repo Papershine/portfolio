@@ -15,7 +15,7 @@
     "@fontsource-variable/inter": "^5.2.6",
     "@tailwindcss/vite": "^4.0.5",
     "@types/react-dom": "^19.1.6",
-    "astro": "^5.2.5",
+    "astro": "^5.12.0",
     "devicons-react": "^1.4.1",
     "framer-motion": "^12.23.6",
     "grapheme-splitter": "^1.0.4",
