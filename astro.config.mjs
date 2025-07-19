@@ -5,12 +5,14 @@ import netlify from "@astrojs/netlify";
 
 import react from "@astrojs/react";
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
 
   output: "server",
-  adapter: netlify(),
+  adapter: cloudflare(),
   integrations: [react()],
 });

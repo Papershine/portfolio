@@ -284,22 +284,6 @@
   background-color: hsla(358.0000000000001, 0%, 0%, 1);
 }
 
-.fade-blur {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  mask-image: linear-gradient(to bottom, transparent 50%, black 90%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 50%, black 90%);
-}
-
-.fade-bottom {
-  mask-image: linear-gradient(to bottom, black 75%, transparent 90%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 75%,
-    rgba(0, 0, 0, 0.25) 100%
-  );
-}
-
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px);

@@ -187,5 +187,9 @@ import { Technologies } from "../components/Technologies.tsx";
     if (projectSection) {
       themeObserver.observe(projectSection);
     }
+
+    setTimeout(() => {
+      document.body.classList.remove("fade-blocked")
+    }, 2000)
   </script>
 </Layout>
