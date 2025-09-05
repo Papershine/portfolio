@@ -3,6 +3,7 @@ import ReactOriginal from 'devicons-react/icons/ReactOriginal';
 import RubyPlain from 'devicons-react/icons/RubyPlain';
 import RailsPlain from 'devicons-react/icons/RailsPlain';
 import GraphqlPlain from 'devicons-react/icons/GraphqlPlain';
+import NextjsPlain from 'devicons-react/icons/NextjsPlain'
 
 export function Technologies({ technologies }: { technologies: string[] }) {
   return (
@@ -28,6 +29,8 @@ function getTechnologyIcon(technology: string): React.ReactNode | null{
       return <RailsPlain />
     case "GraphQL":
       return <GraphqlPlain />
+    case "Next.js":
+      return <NextjsPlain />
     default:
       return null;
   }
