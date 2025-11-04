@@ -1,5 +1,14 @@
 [
   {
+    "name": "Mercury Calculators",
+    "description": "",
+    "urlImg": "/projects/calculators.png",
+    "link": "https://mercury.com/tools/profit-margin-calculator",
+    "type": "Internship",
+    "languages": ["TypeScript"],
+    "frameworks": ["React", "Next.js"]
+  },
+  {
     "name": "Shopify Campaigns",
     "description": "A new feature in the Shopify Admin that allows users to track multichannel marketing campaigns in a single place.",
     "urlImg": "/projects/campaigns.png",
