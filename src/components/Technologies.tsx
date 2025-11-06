@@ -9,7 +9,7 @@ export function Technologies({ technologies }: { technologies: string[] }) {
   return (
     <div className="flex flex-row flex-wrap gap-2 mt-2">
       {technologies.map((technology, index) => (
-        <span key={index} className="flex gap-2 items-center rounded-xl py-2 px-4 text-gray-950 dark:text-gray-100 text-sm bg-gray-200/40 dark:bg-gray-800/40 border-gray-300 dark:border-gray-700 border-1">
+        <span key={index} className="flex gap-2 items-center rounded-2xl py-2 px-4 text-gray-950 dark:text-gray-100 text-sm bg-gray-200/40 dark:bg-gray-800/40 border-gray-300 dark:border-gray-700 border-1">
           {getTechnologyIcon(technology)} {technology}
         </span>
       ))}

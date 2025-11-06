@@ -287,7 +287,8 @@
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out 0.6s, transform 0.6s ease-out 0.6s;
+  transition: opacity 0.6s ease-out 0.4s, transform 0.4s ease-out 0.4s;
+  will-change: opacity, transform;
 }
 
 .fade-in-short-section {
@@ -296,8 +297,8 @@
   transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
 }
 
-body:not(.fade-blocked) .fade-in-section.visible,
-body:not(.fade-blocked) .fade-in-short-section.visible {
+body:not(.fade-blocked) .fade-in-section.fade-visible,
+body:not(.fade-blocked) .fade-in-short-section.fade-visible {
   opacity: 1;
   transform: none;
 }
@@ -334,16 +335,16 @@ body:not(.fade-blocked) .fade-in-short-section.visible {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: -10;
-  border-radius: inherit;
+  z-index: -1;
+  border-radius: 16px;
   filter: blur(1rem);
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s ease-out;
   background: var(--glow-color);
 }
 
 .glow:hover::before {
-  opacity: 1;
+  opacity: 0.75;
 }
 
 

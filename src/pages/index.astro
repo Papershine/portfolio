@@ -37,29 +37,33 @@ import { Technologies } from "../components/Technologies.tsx";
       <div class="space-y-6">
         {
           EXPERIENCES.map((experience) => (
-            <div class="p-4 bg-white/80 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow"
-                 style={`--glow-color: ${experience.background};`}>
-              <h3 class="text-lg font-normal text-gray-900 dark:text-white">
-                <span
-                  class="inline-block pt-1"
-                  style="height: 20px; min-width: 20px;"
-                  set:html={experience.svgIcon
-                    .replace(/width='[^']*'/, 'width="20"')
-                    .replace(/height='[^']*'/, 'height="20"')}
-                />
-                <span class="font-semibold">{experience.company}</span>
-                {" - "}
-                {experience.title}
-              </h3>
-              <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
-                {experience.dates}
-              </p>
-              {experience.technologies && (
-                <Technologies
-                  client:load
-                  technologies={experience.technologies}
-                />
-              )}
+            <div class="fade-in-section">
+              <div
+                class="p-4 bg-white/90 dark:bg-gray-900/40 rounded-2xl shadow-sm relative glow"
+                style={`--glow-color: ${experience.background};`}
+              >
+                <h3 class="text-lg font-normal text-gray-900 dark:text-white">
+                  <span
+                    class="inline-block pt-1"
+                    style="height: 20px; min-width: 20px;"
+                    set:html={experience.svgIcon
+                      .replace(/width='[^']*'/, 'width="20"')
+                      .replace(/height='[^']*'/, 'height="20"')}
+                  />
+                  <span class="font-semibold">{experience.company}</span>
+                  {" - "}
+                  {experience.title}
+                </h3>
+                <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
+                  {experience.dates}
+                </p>
+                {experience.technologies && (
+                  <Technologies
+                    client:load
+                    technologies={experience.technologies}
+                  />
+                )}
+              </div>
             </div>
           ))
         }
@@ -71,9 +75,9 @@ import { Technologies } from "../components/Technologies.tsx";
       >
         School
       </h2>
-      <div class="space-y-6">
+      <div class="space-y-6 fade-in-section">
         <div
-          class="p-4 bg-white/80 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section relative glow"
+          class="p-4 bg-white/90 dark:bg-gray-900/40 rounded-2xl shadow-sm relative glow"
           style="--glow-color: #4887D4"
         >
           <h3 class="text-lg text-gray-900 dark:text-white">
@@ -120,18 +124,18 @@ import { Technologies } from "../components/Technologies.tsx";
       About
     </h2>
     <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-10 p-8 bg-white/50 dark:bg-gray-900/30 rounded-lg shadow-sm fade-in-section"
+      class="grid grid-cols-1 md:grid-cols-3 gap-10 p-8 bg-white/50 dark:bg-gray-900/30 rounded-2xl shadow-sm fade-in-section"
     >
       <div
         class="my-4 mx-auto max-w-[50vw] aspect-square relative glow-border-spin"
       >
-      <div class="rounded-lg shadow-lg overflow-hidden">
-        <img
-          src="/images/portrait.jpg"
-          alt="Profile"
-          class="transition-transform transform hover:scale-150 hover:translate-y-2/9"
-        />
-      </div>
+        <div class="rounded-2xl shadow-lg overflow-hidden">
+          <img
+            src="/images/portrait.jpg"
+            alt="Profile"
+            class="transition-transform transform hover:scale-150 hover:translate-y-2/9"
+          />
+        </div>
       </div>
       <div
         class="text-gray-700 dark:text-gray-300 md:col-span-2 flex flex-col gap-4 justify-center"
@@ -146,8 +150,8 @@ import { Technologies } from "../components/Technologies.tsx";
           searching for the best bubble tea in Vancouver.
         </p>
         <p>
-          I also enjoy taking photos in my spare time. You can check out
-          some of the photos I've taken on my
+          I also enjoy taking photos in my spare time. You can check out some of
+          the photos I've taken on my
           <a
             href="https://www.flickr.com/photos/185440318@N05/"
             class="gradient-link">Flickr</a
@@ -161,7 +165,7 @@ import { Technologies } from "../components/Technologies.tsx";
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+          entry.target.classList.add("fade-visible");
         }
       });
     });
